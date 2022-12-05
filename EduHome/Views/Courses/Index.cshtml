@@ -1,0 +1,58 @@
+﻿@model List<Course>
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>courses</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Course Start -->
+<div class="course-area pt-150 pb-150">
+    <div class="container">
+
+        <div class="row" id="myCourses">
+            @foreach (Course course in Model)
+            {
+                <div class="col-md-4 hidden-sm col-xs-12">
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a a asp-controller="Courses" asp-action="Index">
+                                <img src="~/img/course/@course.Image" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a asp-controller="Courses" asp-action="Index">@course.Courses</a></h3>
+                            <p>@course.Description</p>
+                            <a class="default-btn" asp-controller="Course" asp-action="Index">Read more</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-12"   style="display:flex; justify-content:center"  >
+                <a id="loadmore" style="width:80px;height:42px " class="btn btn-danger" > LoadMore </a>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    @section Scripts{ 
+        <script src="~/js/LoadMore.js" asp-append-version="true" ></script>
+    }
+    
